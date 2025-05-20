@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Portifólio</title>
+</head>
+<body>
+    <div class="particulas"></div>
+    
+    <nav class="navbar">
+        <ul class="menu">
+            <li>
+                <a href="#inicio" class="menu-link">Início</a>
+            </li>
+            <li>
+                <a href="#sobre" class="menu-link">Sobre</a>
+            </li>
+            <li>
+                <a href="#projetos" class="menu-link">Projetos</a>
+            </li>
+            <li>
+                <a href="#contato" class="menu-link">Contato</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main id="inicio" class="main">
+            <img src="assets/images/profile.png" alt="Foto de perfil" class="profile-image">
+            <h1>Augusto César</h1>
+            <p class="subtitle">Estudante de Eng. de Software</p> 
+    </main>
+
+    <section id="sobre" class="sobre">
+        <h2 class="sobre-title">Sobre mim</h2>
+        <div class="sobre-content">
+            <p class="sobre-paragraph">Sou um estudande de Engenharia de Software apaixonado por tecnologia e sempre em busca de novos desafios. Estou sempre disposto a aprender e a confiar em minha equipe.</p>
+        </div>
+    </section>    
+
+    <section id="projetos" class="projetos">
+        <h2 class="sobre-title">Meus Projetos</h2>
+
+        <div class="projetos-content">
+            <div class="projetos-box">
+                <div class="projetos-card">
+                    <img src="assets/images/python-image.png" alt="Python Days" class="projetos-image">
+                    <div class="caixa-texto-projetos">
+                        <h3 class="info-projeto">Python Days</h3>
+                        <p class="paragrafo-projeto">Descrição do python days.</p>
+                    </div>
+                </div>
+
+                <div class="projetos-card">
+                    <img src="assets/images/elevator.png" alt="Elevator Simulator" class="projetos-image">
+                    <div class="caixa-texto-projetos">
+                        <h3 class="info-projeto">Elevator Simulator</h3>
+                        <p class="paragrafo-projeto">Descrição do elevator simulator.</p>
+                    </div>
+                </div>
+
+                <div class="projetos-card">
+                    <img src="assets/images/banco-de-buracos.png" alt="Banco de Buracos" class="projetos-image">
+                    <div class="caixa-texto-projetos">
+                        <h3 class="info-projeto">Banco de Buracos</h3>
+                        <p class="paragrafo-projeto">Descrição do banco de buracos.</p>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <section id="contato" class="contatos">
+        <h2 class="contatos-title">Contato</h2>
+        <form class="formulario-contato" id="formulario" onsubmit="enviarWhats(event)">
+            <div class="grupo-form">
+                <input placeholder="Nome" class="text-form" id="nome">
+            </div>
+            <div class="grupo-form">
+                <textarea placeholder="Digite sua Mensagem" class="text-form" rows ="6" id="mensagem"></textarea>
+            </div>
+
+            <button type="submit" class="botao-form">Enviar WhatsApp</button>
+        </form>
+    </section>
+
+    <script>
+        function enviarWhats(event) {
+            event.preventDefault();
+        }
+
+        const nome = document.getElementById('nome').value;
+        const mensagem = document.getElementById('mensagem').value;
+        const telefone = '5586981824325';
+
+        const texto = `Olá! me chamo ${nome}, ${mensagem}`;
+        const msgFormatada = encodeURIComponent(texto);
+
+        const url = `https://wa.me/${telefone}?text=${msgFormatada}`;
+        console.log(url);
+
+        window.open(url, '_blank');
+
+    </script>
+
+</body>
+</html>
